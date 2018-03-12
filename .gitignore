@@ -1,2 +1,5 @@
 CEL/
 .ipynb*
+annotations
+venv
+intensities
