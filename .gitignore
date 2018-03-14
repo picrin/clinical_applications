@@ -4,5 +4,6 @@ annotations
 venv
 intensities
 intensities.zip
+probesets
 qn
-
+*.pem
