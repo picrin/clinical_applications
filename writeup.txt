@@ -1,0 +1,106 @@
+﻿Towards Clinical Applications of Myotonic Dystrophy Biomarkers
+1 Introduction
+Myotonic Dystrophy type 1 (DM1) is an autosomal dominant trinucleotide repeat disorder, with DM1-positive patients characterised by abnormally large CTGn repeat in a non-coding region of the Dystrophia Myotonica Protein Kinase (DMPK) gene. The length of the repeat is positively correlated with severity of symptoms, which include muscle wasting and myotonia, cardiac conduction defects, cataracts, hypersomnia, abnormal glucose response, as well as premature baldness and testicular atrophy in males (https://doi.org/doi:10.1016/0092-8674(92)90154-5).
+
+
+Nakamori et al (https://doi.org/10.1002/ana.23992) identified biomarkers of DM1, via high-throughput techniques, in form of genes, whose expression is characterised by dysregulated alternative splicing.
+
+
+In this study we evaluate Nakamori's biomarkers with data obtained from an independent cohort, with the view of eventually applying these biomarkers in the context of evaluating efficacy of emerging DM1 treatments (https://doi.org/10.1124/jpet.115.226969).  The structure of our argument is as follows:
+
+
+1. The length of the trinucleotide repeat specific to Myotonic Dystrophy (DM1) leaves a discernible pattern in the mRNA profiles obtained from muscle and blood samples of diseased and healthy patients using microarray chips or alternative technologies.
+2. The strength of the pattern is positively correlated with the length of the repeat.
+3. The pattern can be used to construct a simple statistical model, which can predict the length of the repeat from the mRNA profile significantly better than a random predictor. The quality of prediction is modest, with unoptimised model trained on (TODO 14) patients able to explain only about a fifth of repeat length variance when tested on an independent set of (TODO 13) patients.
+4. We conjecture that the model can serve as a valuable tool in evaluating efficacy of any treatment for DM1 as such treatment enters pre-clinical or clinical trials.
+
+
+Claim 1 is well-supported in the literature in relation to the muscle tissue. We give an overview of prior work in chapter 2. We present a statistical analysis of a previously unpublished dataset, which further supports this claim in relation to muscle tissue in chapter 3. We present an extension of this claim to the blood tissue, which is our original contribution. Ability to use blood is important, since muscle sampling was highlighted to be as a "main drawback" (https://doi.org/10.1002/ana.23992)
+
+
+Claim 2 was not, to the best of our knowledge, formally verified before, but is a natural consequence of accepted and conjectured molecular mechanisms of DM1 pathology. We provide a formal verification of this claim, using statistical analysis of the dataset described in chapter 3.
+
+
+We demonstrate Claim 3, which is our original contribution, based on the methodology proposed by Lee et al. in the context of Huntington disease. While novel, it is not surprising, e.g:
+
+
+> Our study indicates that alternative splice events have good potential to function as biomarkers of DM severity and therapeutic response: (1) the analytical precision is good; (2) the mechanism for splicing misregulation is well defined and directly connected to the disease process (RNA toxicity) and therapeutic goal (release of sequestered proteins); (3) many splicing defects are correlated with muscle weakness and some are directly implicated in symptoms of DM133,35,39; and (4) in mouse models, the splicing defects are fully reversible by RNAtargeted therapy.
+
+
+(https://doi.org/10.1002/ana.23992)
+
+
+Claim 4 is a natural extension, and the motivation of this line of research, but is outside of the scope of our experiment and cannot be evaluated using our data. We offer a plausible reason to support a belief that our model can perform significantly better in the setting of a pre-clinical or a clinical trial than in the setting of our experiment.
+
+
+We would like to thank the Marigold foundation and EPSRC UK for financing various aspects of this research.
+
+
+2 Prior high-throughput work on DM1
+Our primary reference is the work of Nakamori et al., who identified 42 genes exhibiting splicing defects in DM1. Briefly, their methodology was as follows:
+1. Muscle tissue (patients: 4 biceps, 2 quadriceps, 1 TA, 1 diaphragm; controls: 8 VL) was sampled post-mortem from 8 patients with DM1 and 8 healthy controls.
+2. mRNA was extracted from the samples, purified and hybridized to GeneChip™ Human Exon 1.0 ST microarrays.
+3. Putative alternative splicing defects were identified using a mixture of existing methods, such as Affymetrix's PLIER, DABG and Alternative Transcript Analysis Methods for Exon Arrays, and new methods proposed and described by the authors.
+4. Identified putative defects were validated using RT-PCR in 50 control subjects, yielding 42 genes with confirmed splicing defects.
+
+
+The authors report several technical obstacles with this approach, with initial version of their pipeline suffering from as many as 80% putative splicing defects failing to replicate with RT-PCR. Further analysis suggested that this occurred when:
+1. "Signal intensity for the entire transcript or a particular exon was low."
+2. "Overall expression of a transcript was strongly up- or down- regulated in DM1 relative to normal controls."
+3. "Signal intensity of an exon was inappropriately high relative to other exons in the same transcript."
+3 The Dataset
+As part of international collaboration we've obtained a dataset from 35 patients, including 31 Myotonic Dystrophy type 1 (DM1) cases and 4 healthy controls. All DM1 cases in this research were heterozygous for the abnormally expanded (CTG)n repeat.
+
+
+The mode of the length of the allele containing DM1-specific trinucleotide expansion (MAL) was determined by Polymerase Chain Reaction (PCR) of blood DNA for 35/36 patients. One patient refused blood donation.
+
+
+For each of the 35 blood-donating patients mRNA expression profiling of blood was performed using Affymetrix GeneChip™ Human Exon 1.0 ST microarray.
+
+
+For 30/36 patients a successful muscle biopsy was obtained from (TODO what muscle). The muscle tissue was mRNA profiled using the same type of microarray.
+
+
+Principal Component Analysis (PCA) was performed on both blood & muscle profiles, and visual inspection was carried out to detect presence of outliers. 0 outliers in the blood batch and 4 outliers in the muscle batch were identified and expression profiling was repeated for these patients. For the analysis we used only the repeated data.
+
+
+It should be stressed that our dataset differs from the dataset collected by Nakamori et al. in the following ways:
+1. We did not perform RT-PCR analyses
+2. Our dataset includes both blood and muscle tissue samples
+3. Our sample size is about twice the size of the authors.
+
+
+The dataset is deposited to Gene Expression Omnibus (GEO) with accession number (TODO deposit to GEO).
+3.1 Affymetrix
+
+
+Affymetrix GeneChip™ Human Exon 1.0 ST microarray contains over 5 million probes, i.e. short cDNA sequences, which target genomic regions with high specificity.
+
+
+Each probe in the HuEx chip contains precisely 25 nucleotides. Consequently, genomic regions of interest, which are shorter than 25 nucleotides, for example some of the short exons, are not targeted.
+
+
+Each continuous section of DNA can be targeted by up to 4 probes. DNA sections targeted by the chip include known and suspected exons in known and suspected genes, as well as non-coding genomic features, including various types of transcribed or hypothetically transcribed DNA (miRNA, rRNA, pseudo-genes, etc.).
+
+
+Probesets are further grouped into transcription clusters, which correspond to the entire genes.
+
+
+For example, a human gene Inter-Leukin enhancer-binding Factor 3 (ILF3) has XYZ known transcripts, with XYZ non-overlapping exons, targeted by XYZ probes, which can be grouped into XYZ probesets, all of which can be grouped into a single transcription cluster.
+
+
+4 Analysis
+
+
+5 Results
+
+
+6 Results
+
+
+7 Conclusion
+There are reasons to believe our method would perform well in a clinical setting, blah, blah, blah.
+
+
+1. Terminology -> Dysregulation of Alternative Splicing
+2. DM1 as opposed to MD1
