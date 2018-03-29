@@ -1,6 +1,7 @@
 CEL/
 .ipynb*
 annotations
+experiment
 venv
 intensities
 intensities.zip
