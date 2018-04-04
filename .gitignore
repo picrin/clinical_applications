@@ -8,3 +8,7 @@ intensities.zip
 probesets
 qn
 *.pem
+blood_predictions/
+experiment_blood/
+experiment_muscle/
+muscle_predictions/
