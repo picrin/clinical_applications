@@ -1,0 +1,12 @@
+[Unit]
+Description=dmbdi
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+ExecStart=/home/ubuntu/clinical_applications/start_analysis.sh
+
+[Install]
+WantedBy=multi-user.target
+Alias=dmbdi.service
