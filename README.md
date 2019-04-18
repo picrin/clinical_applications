@@ -1,4 +1,6 @@
-This tool is implemented as a jupyter notebook and can be accessed at `http://dmbdi.adamkurkiewicz.com`. The site is password protected, 
+This tool is implemented as a jupyter notebook and can be accessed at `http://dmbdi.adamkurkiewicz.com`. The site is password protected, to be granted access, please send an e-mail to `adam.kurkiewicz@glasgow.ac.uk`.
+
+The template notebook is where you need to start, `DMBDI_explorer_template.ipynb`.
 
 The notebook consists of cells. Each cell is numbered on the left (with numbering corresponding to the order of execution) and can be selected using a keyboard or a pointer. In order to execute a cell and select the next cell you can press shift-enter. The content of the cell consists of arbitrary python code, and can produce a text or a graphic output (e.g. an interactive plot).
 
