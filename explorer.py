@@ -112,26 +112,50 @@ def name_to_plot(probesets, gene_name, regressor):
     go.Scatter(
       x = position,
       y = [-math.log(0.05, 10)] * len(position),
+      marker = dict(
+        color = 'rgba(255, 0, 0, 0.4)',
+        line = dict(
+            color = 'rgba(255, 0, 0, 0.4)'
+        )
+      ),
       mode = 'lines',
-      name = 'overexpressed @ 0.05',
+      name = 'spliced-in @ 0.05',
     ),
     go.Scatter(
       x = position,
       y = [-math.log(0.05/len(position), 10)] * len(position),
+      marker = dict(
+        color = 'rgba(255, 0, 0, 1)',
+        line = dict(
+            color = 'rgba(255, 0, 0, 1)'
+        )
+      ),
       mode = 'lines',
-      name = 'overexpressed @ Bonferroni 0.05'
+      name = 'spliced-in @ Bonferroni 0.05'
     ),
     go.Scatter(
       x = position,
       y = [math.log(0.05, 10)] * len(position),
+      marker = dict(
+        color = 'rgba(255, 0, 0, 0.4)',
+        line = dict(
+            color = 'rgba(255, 0, 0, 0.4)'
+        )
+      ),
       mode = 'lines',
-      name = 'underexpressed @ 0.05'
+      name = 'spliced-out @ 0.05'
     ),
     go.Scatter(
       x = position,
       y = [math.log(0.05/len(position), 10)] * len(position),
+      marker = dict(
+        color = 'rgba(255, 0, 0, 1)',
+        line = dict(
+            color = 'rgba(255, 0, 0, 1)'
+        )
+      ),
       mode = 'lines',
-      name = 'underexpressed @ Bonferroni 0.05'
+      name = 'spliced-out @ Bonferroni 0.05'
     ),
     dict(
       type = 'scatter',
@@ -169,5 +193,7 @@ def expression_per_probeset(probeset_id, genes, experiment, muscle_metadata):
         y = data_to_plot[i]
         plt.scatter(x, y, marker=",")
         plt.plot(numpy.unique(x), numpy.poly1d(numpy.polyfit(x, y, 1))(numpy.unique(x)), linewidth=4, color="r")
+        slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(x, y)
+        print("p_value, slope, r_value, std_err", p_value, slope, r_value, std_err)
         plt.xlabel("Measured allele length")
         plt.ylabel("Expression level of a probe belonging to probeset with id {}".format(probeset_id))
