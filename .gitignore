@@ -15,6 +15,5 @@ muscle_predictions/
 simulation_results/
 reproducablity_instructions/
 L1Penalise
-dirty_laundry/blood_matrix.tsv
-dirty_laundry/muscle_matrix.tsv
+dirty_laundry
 __pycache__
