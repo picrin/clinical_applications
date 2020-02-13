@@ -1,0 +1,10 @@
+nohup python3 08_predictions.py muscle TNNI1 995 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 996 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 997 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 998 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 999 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 1001 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 1002 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 1003 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 1004 500 PLSR &
+nohup python3 08_predictions.py muscle TNNI1 1005 500 PLSR &
